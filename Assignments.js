@@ -71,13 +71,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //     }
 // }
 // console.log(`Sum is : ${sum}`)
-function print_starr(rows) {
-    for (var i = 1; i <= rows; i++) {
-        var row = '';
-        for (var j = 1; j <= i; j++) {
-            row += j + ' ';
-        }
-        console.log(row.trim());
+// function print_starr(rows: number): void {
+//     for (let i = 1; i <= rows; i++) {
+//         let row = '';
+//         for (let j = 1; j <= i; j++) {
+//             row += j + ' ';
+//         }
+//         console.log(row.trim());
+//     }
+// }
+// print_starr(5);
+function swap_arrays(arr1, arr2) {
+    var _a;
+    if (arr1.length !== arr2.length) {
+        console.log("Array shold be in eqal length..");
     }
+    _a = [arr2, arr1], arr1 = _a[0], arr2 = _a[1];
+    console.log("AArray after swapping==>");
+    console.log("Array 1 => ".concat(arr1.join(' , ')));
+    console.log("Array 1 => ".concat(arr2.join(' , ')));
 }
-print_starr(5);
+var a1 = [1, 4, 5, 6, 7, 8, 9];
+var a2 = [5, 9, 7, 5, 3, 2, 1];
+console.log("Before swapping : ", a1);
+console.log("Before swapping : ", a2);
+swap_arrays(a1, a2);

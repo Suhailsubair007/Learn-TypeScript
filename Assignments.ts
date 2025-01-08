@@ -84,14 +84,32 @@ import * as readline from 'readline-sync';
 // }
 // console.log(`Sum is : ${sum}`)
 
-function print_starr(rows: number): void {
-    for (let i = 1; i <= rows; i++) {
-        let row = '';
-        for (let j = 1; j <= i; j++) {
-            row += j + ' ';
-        }
-        console.log(row.trim());
+// function print_starr(rows: number): void {
+//     for (let i = 1; i <= rows; i++) {
+//         let row = '';
+//         for (let j = 1; j <= i; j++) {
+//             row += j + ' ';
+//         }
+//         console.log(row.trim());
+//     }
+// }
+
+// print_starr(5);
+
+
+function swap_arrays(arr1: number[], arr2: number[]):void {
+    if(arr1.length !== arr2.length) {
+        console.log("Array shold be in eqal length..")
     }
+    [arr1,arr2] = [arr2,arr1]
+    console.log("AArray after swapping==>")
+    console.log(`Array 1 => ${arr1.join(' , ')}`)
+    console.log(`Array 1 => ${arr2.join(' , ')}`)
 }
 
-print_starr(5);
+let a1 = [1,4,5,6,7,8,9]
+let a2 = [5,9,7,5,3,2,1]
+
+console.log("Before swapping : ",a1)
+console.log("Before swapping : ",a2)
+swap_arrays(a1,a2)
