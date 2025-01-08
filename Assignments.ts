@@ -69,4 +69,29 @@ import * as readline from 'readline-sync';
 //         break;
 // }
 
-const number : number = parseInt()
+// const number: number = parseInt(readline.question('Enter the number : '));
+// console.log(`Multiplication table for ${number} :`);
+// for (let i = 1; i <= 10; i++) {
+//     console.log(`${i} x ${number} = ${i * number}`)
+// }
+
+// const list: number = parseInt(readline.question('Enter the limit : '));
+// let sum : number = 0
+// for (let i = 1; i <= list; i++) {
+//     if(i %2 !== 0){
+//         sum+=i
+//     }
+// }
+// console.log(`Sum is : ${sum}`)
+
+function print_starr(rows: number): void {
+    for (let i = 1; i <= rows; i++) {
+        let row = '';
+        for (let j = 1; j <= i; j++) {
+            row += j + ' ';
+        }
+        console.log(row.trim());
+    }
+}
+
+print_starr(5);
