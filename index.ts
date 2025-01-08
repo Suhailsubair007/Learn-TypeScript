@@ -156,3 +156,81 @@ console.log(car1.type)
 const nameAgeMap: { [index: string]: number } = {};
 nameAgeMap.Jack = 25; // no error
 // nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+
+
+type CarYear = number
+type CarType = string
+type CarModel = string
+type Car = {
+  year: CarYear,
+  type: CarType,
+  model: CarModel
+}
+
+const carYear: CarYear = 2001
+const carType: CarType = "Toyota"
+const carModel: CarModel = "Corolla"
+const car2: Car = {
+  year: carYear,
+  type: carType,
+  model: carModel
+};
+  
+
+interface Bike {
+    model : number,
+    color : string,
+    year : number,
+}
+
+const bikeData : Bike = {
+    model: 213,
+    color:"Blue",
+    year:2024
+}
+
+console.log(bikeData.year)
+
+// Extending Interface 
+
+interface NamedBike extends Bike {
+    name:string
+}
+
+const bikeData_extended : NamedBike = {
+    name:"Dukati",
+    model: 213,
+    color:"Blue",
+    year:2024
+}
+
+//Union types ====
+
+function printStatuCode(code: string | number){
+    console.log(`The status code is ${code}`)
+}
+console.log(printStatuCode(400))
+console.log(printStatuCode("500"))
+
+//Functions===========================================
+
+// function getTime(): number {
+//   return new Date().getTime();
+// }
+
+// console.log(getTime())
+
+
+// Nothing will return....
+function printHelloWorld(): void {
+    console.log("HI suhial")
+}
+
+
+function multiply(a: number, b: number) {
+  return a * b;
+}
+
+function addition(a: number, b: number, c?: number) {
+  return a + b + (c || 0);
+}
