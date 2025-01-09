@@ -1,29 +1,29 @@
 // Implicit Types ================================================================
 
-let username = 'suhail';
-// username = 21 // This will cause an error because 'username' is inferred as a string
+let usernameImplicit = 'suhail';
+// usernameImplicit = 21 // This will cause an error because 'usernameImplicit' is inferred as a string
 
-let jobSalary = 30_000;
-// jobSalary = 'Suhail' // This will cause an error because 'jobSalary' is inferred as a number
+let jobSalaryImplicit = 30_000;
+// jobSalaryImplicit = 'Suhail' // This will cause an error because 'jobSalaryImplicit' is inferred as a number
 
 // Explicit Types ================================================================
 
-let applicantName: string = 'suhail';
-let applicantEmail: string = 'suhail@gmail.com';
-let applicantAge: number = 22;
-let isActive: boolean = true;
-let programmingLanguages: string[] = ['js', 'c', 'python'];
-let someNumbers: number[] = [1, 2, 43, 4, 5];
-let mixedArray: any[] = []; // Allows any type of elements
+let applicantNameExplicit: string = 'suhail';
+let applicantEmailExplicit: string = 'suhail@gmail.com';
+let applicantAgeExplicit: number = 22;
+let isActiveExplicit: boolean = true;
+let programmingLanguagesExplicit: string[] = ['js', 'c', 'python'];
+let someNumbersExplicit: number[] = [1, 2, 43, 4, 5];
+let mixedArrayExplicit: any[] = []; // Allows any type of elements
 
-let userDetails: { name: string, age: number } = {
+let userDetailsExplicit: { name: string, age: number } = {
     name: 'suhail',
     age: 32
 };
 
 // Interface Definition =========================================================
 
-interface UserDetails {
+interface UserDetailsInterface {
     name: string;
     age: number;
     salary: number;
@@ -32,7 +32,7 @@ interface UserDetails {
 
 // Using the Interface ==========================================================
 
-let userWithInterface: UserDetails = {
+let userWithInterface: UserDetailsInterface = {
     name: 'suhail dubair',
     age: 22,
     salary: 1200000,
@@ -43,14 +43,14 @@ let userWithInterface: UserDetails = {
 
 // Type Alias ===================================================================
 
-type UserDetailsType = {
+type UserDetailsTypeAlias = {
     name: string;
     age: number;
     salary: number;
     getName: () => void;
 }
 
-let userWithType: UserDetailsType = {
+let userWithTypeAlias: UserDetailsTypeAlias = {
     name: 'suhail dubair',
     age: 22,
     salary: 1200000,
@@ -61,176 +61,151 @@ let userWithType: UserDetailsType = {
 
 // Union / Optional Types =======================================================
 
-type UserDetailsUnion = {
+type UserDetailsUnionType = {
     name: string;
     age: number | string;
     salary: number | string;
     getName?: () => void;  // Optional property
 }
 
-let languages: (string | number)[] = ['js', 'c', 'python', 5, 6, 9];
-let inferredLanguages = ['js', 'c', 'python', 5, 6, 9]; // Inferred types
+let languagesUnion: (string | number)[] = ['js', 'c', 'python', 5, 6, 9];
+let inferredLanguagesUnion = ['js', 'c', 'python', 5, 6, 9]; // Inferred types
 
 // Functions ====================================================================
 
-// type UserDetailsFunction = {
-//     name: string;
-//     age: number | string;
-//     salary: number | string;
-//     getName?: () => void;
-// }
-
-// let userWithFunction: UserDetailsFunction = {
-//     name: 'suhail dubair',
-//     age: 22,
-//     salary: 1200000,
-//     getName() {
-//         console.log("Hi, I am Suhail Subair");
-//     }
-// }
-
-// function getUserName(user: UserDetailsFunction): string {
-//     return user.name;
-// }
-// function getUserName(user: UserDetailsFunction): void {
-//     console.log(user.name);
-// }
-
-// Example usage of the function
-// const newValue = getUserName(userWithFunction);
-
-
-// Named Type ====================================================================
-
-// type StatusType = 'pending' | 'shipped' | 'completed';
-
-// let currentStatus:StatusType = 'completed'
-
-
-//================================================================================
-
-function add(num1: number, num2: number): number {
+function addNumbers(num1: number, num2: number): number {
     return num1 + num2;
 }
 
-add(3, 5)
+addNumbers(3, 5)
 
+// Tuples =======================================================================
 
-//Tuples
+const tupleExample: [number, boolean, string] = [5, true, 'The Real Coding God'];
+console.log(tupleExample)
 
-const tuple: [number, boolean, string] = [5, true, 'The Real Coding God'];
-console.log(tuple)
+// Tuples - readOnly ============================================================
 
-//Tuples - readOnly
 const ourReadonlyTuple: readonly [number, boolean, string] = [5, true, 'The Real Coding God'];
 console.log(ourReadonlyTuple)
 
-//Named tuples
-const graph: [x: number, y: number] = [21.1, 54.1];
-console.log(graph)
+// Named tuples =================================================================
 
-// Destructuring Tuples
-const graphDestruture: [x: number, y: number] = [24.7, 55.7];
-const [x, y] = graphDestruture;
-console.log(x, y)
+const graphTuple: [x: number, y: number] = [21.1, 54.1];
+console.log(graphTuple)
 
-// ObjectTYpes
-const car: { type: string, model: string, price?: number } = {
-    type:"Maruthi 800",
-    model:"800",
+// Destructuring Tuples =========================================================
+
+const graphDestructure: [x: number, y: number] = [24.7, 55.7];
+const [xDestructure, yDestructure] = graphDestructure;
+console.log(xDestructure, yDestructure)
+
+// Object Types =================================================================
+
+const carObject: { type: string, model: string, price?: number } = {
+    type: "Maruthi 800",
+    model: "800",
     // price:30000
 }
 
-console.log(car)
+console.log(carObject)
 
-//Type inference 
+// Type inference ===============================================================
 
-const car1 = {
-    type:"Toyota",
+const carInferred = {
+    type: "Toyota",
 };
-car1.type = "Maruthi 800"
-console.log(car1.type)
+carInferred.type = "Maruthi 800"
+console.log(carInferred.type)
 
-//Index signature 
+// Index signature =============================================================
 
-const nameAgeMap: { [index: string]: number } = {};
-nameAgeMap.Jack = 25; // no error
-// nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+const nameAgeMapIndex: { [index: string]: number } = {};
+nameAgeMapIndex.Jack = 25; // no error
+// nameAgeMapIndex.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
 
+// Type Aliases ================================================================
 
-type CarYear = number
-type CarType = string
-type CarModel = string
-type Car = {
-  year: CarYear,
-  type: CarType,
-  model: CarModel
+type CarYearAlias = number
+type CarTypeAlias = string
+type CarModelAlias = string
+type CarAlias = {
+    year: CarYearAlias,
+    type: CarTypeAlias,
+    model: CarModelAlias
 }
 
-const carYear: CarYear = 2001
-const carType: CarType = "Toyota"
-const carModel: CarModel = "Corolla"
-const car2: Car = {
-  year: carYear,
-  type: carType,
-  model: carModel
+const carYearAlias: CarYearAlias = 2001
+const carTypeAlias: CarTypeAlias = "Toyota"
+const carModelAlias: CarModelAlias = "Corolla"
+const carAlias: CarAlias = {
+    year: carYearAlias,
+    type: carTypeAlias,
+    model: carModelAlias
 };
-  
 
-interface Bike {
-    model : number,
-    color : string,
-    year : number,
+// Interface Example ===========================================================
+
+interface BikeInterface {
+    model: number,
+    color: string,
+    year: number,
 }
 
-const bikeData : Bike = {
+const bikeDataInterface: BikeInterface = {
     model: 213,
-    color:"Blue",
-    year:2024
+    color: "Blue",
+    year: 2024
 }
 
-console.log(bikeData.year)
+console.log(bikeDataInterface.year)
 
-// Extending Interface 
+// Extending Interface =========================================================
 
-interface NamedBike extends Bike {
-    name:string
+interface NamedBikeInterface extends BikeInterface {
+    name: string
 }
 
-const bikeData_extended : NamedBike = {
-    name:"Dukati",
+const bikeDataExtended: NamedBikeInterface = {
+    name: "Dukati",
     model: 213,
-    color:"Blue",
-    year:2024
+    color: "Blue",
+    year: 2024
 }
 
-//Union types ====
+// Union types =================================================================
 
-function printStatuCode(code: string | number){
+function printStatusCode(code: string | number) {
     console.log(`The status code is ${code}`)
 }
-console.log(printStatuCode(400))
-console.log(printStatuCode("500"))
+console.log(printStatusCode(400))
+console.log(printStatusCode("500"))
 
-//Functions===========================================
+// Functions ===================================================================
 
-// function getTime(): number {
-//   return new Date().getTime();
-// }
+function getCurrentTime(): number {
+    return new Date().getTime();
+}
 
-// console.log(getTime())
+console.log(getCurrentTime())
 
+// Void Function ===============================================================
 
-// Nothing will return....
 function printHelloWorld(): void {
     console.log("HI suhial")
 }
 
+// Function with Optional Parameter ============================================
 
-function multiply(a: number, b: number) {
-  return a * b;
+function multiplyNumbers(a: number, b: number) {
+    return a * b;
 }
 
-function addition(a: number, b: number, c?: number) {
-  return a + b + (c || 0);
+function additionNumbers(a: number, b: number, c?: number) {
+    return a + b + (c || 0);
 }
+
+// Type Casting ================================================================
+
+let unknownVariable: unknown = 'Hellooo';
+console.log((unknownVariable as string).length);
