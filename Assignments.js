@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var readline = require("readline-sync");
 // const charEntered:string = readline.question('Enter tyhe character : ');
 // console.log(`Entered char is : ${charEntered}`)
 // const n1 : number = parseInt(readline.question('Enter the first number:'));
@@ -81,18 +82,92 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //     }
 // }
 // print_starr(5);
-function swap_arrays(arr1, arr2) {
-    var _a;
-    if (arr1.length !== arr2.length) {
-        console.log("Array shold be in eqal length..");
+// function swap_arrays(arr1: number[], arr2: number[]):void {
+//     if(arr1.length !== arr2.length) {
+//         console.log("Array shold be in eqal length..")
+//     }
+//     [arr1,arr2] = [arr2,arr1]
+//     console.log("AArray after swapping==>")
+//     console.log(`Array 1 => ${arr1.join(' , ')}`)
+//     console.log(`Array 1 => ${arr2.join(' , ')}`)
+// }
+// let a1 = [1,4,5,6,7,8,9]
+// let a2 = [5,9,7,5,3,2,1]
+// console.log("Before swapping : ",a1)
+// console.log("Before swapping : ",a2)
+// swap_arrays(a1,a2)
+// function even_count(arr: number[]): void {
+//     let count: number = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] % 2 === 0) {
+//             count++
+//         }
+//     }
+//     console.log(count)
+// }
+// even_count([1, 2, 3, 4, 5, 6, 7, 8, 9])
+// function sortArrayDescending(): void {
+//     const size: number = parseInt(prompt("Enter the size of an array:") || "0");
+//     if (isNaN(size) || size <= 0) {
+//       console.log("Invalid size. Please enter a positive integer.");
+//       return;
+//     }
+//     const inputValues = prompt(
+//       `Enter the ${size} values of the array, separated by commas:`
+//     );
+//     if (!inputValues) {
+//       console.log("No values entered. Exiting...");
+//       return;
+//     }
+//     const array: number[] = inputValues
+//       .split(",")
+//       .map((val) => parseInt(val.trim()));
+//     if (array.some((val) => isNaN(val))) {
+//       console.log("Invalid input. Please enter valid numbers.");
+//       return;
+//     }
+//     if (array.length !== size) {
+//       console.log(
+//         `Size mismatch. Expected ${size} elements but got ${array.length}.`
+//       );
+//       return;
+//     }
+//     array.sort((a, b) => b - a);
+//     console.log("Sorted array (descending order):", array.join(", "));
+//   }
+//   sortArrayDescending();
+// const inputString: string = readline.question('Enter a string: ');
+// function isPalindrome(str: string): boolean {
+//     const reversedStr = str.split('').reverse().join('');
+//     return str === reversedStr;
+// }
+// if (isPalindrome(inputString)) {
+//     console.log('Entered string is a palindrome');
+// } else {
+//     console.log('Entered string is not a palindrome');
+// }
+var size = parseInt(readline.question('Enter the size of arrays: '));
+function read2DArray(size, arrayNumber) {
+    var array = [];
+    console.log("Enter the values of array ".concat(arrayNumber, ":"));
+    for (var i = 0; i < size; i++) {
+        var row = readline.question().split(' ').map(Number);
+        array.push(row);
     }
-    _a = [arr2, arr1], arr1 = _a[0], arr2 = _a[1];
-    console.log("AArray after swapping==>");
-    console.log("Array 1 => ".concat(arr1.join(' , ')));
-    console.log("Array 1 => ".concat(arr2.join(' , ')));
+    return array;
 }
-var a1 = [1, 4, 5, 6, 7, 8, 9];
-var a2 = [5, 9, 7, 5, 3, 2, 1];
-console.log("Before swapping : ", a1);
-console.log("Before swapping : ", a2);
-swap_arrays(a1, a2);
+var array1 = read2DArray(size, 1);
+var array2 = read2DArray(size, 2);
+var sumArray = [];
+for (var i = 0; i < size; i++) {
+    var row = [];
+    for (var j = 0; j < size; j++) {
+        row.push(array1[i][j] + array2[i][j]);
+    }
+    sumArray.push(row);
+}
+console.log('Sum of 2 arrays is:');
+for (var _i = 0, sumArray_1 = sumArray; _i < sumArray_1.length; _i++) {
+    var row = sumArray_1[_i];
+    console.log(row.join(' '));
+}
