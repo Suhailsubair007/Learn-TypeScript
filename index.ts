@@ -209,3 +209,4 @@ function additionNumbers(a: number, b: number, c?: number) {
 
 let unknownVariable: unknown = 'Hellooo';
 console.log((unknownVariable as string).length);
+
